@@ -1,0 +1,21 @@
+.gt-site-wrapper {
+  width: 100%;
+
+  &.gt-site-wrapper--dark {
+    background-color: $dark_gray;
+  }
+
+  &.gt-site-wrapper--blue {
+    background-color: $blue;
+  }
+}
+
+.gt-site-wrapper__inner {
+  margin: 0 auto;
+  max-width: $page_width;
+  padding: 10px;
+
+  @media(min-width: $break_small) {
+    padding: 20px;
+  }
+}
