@@ -1,0 +1,86 @@
+.gt-button-group {
+  .gt-button {
+    margin-right: 6px;
+    margin-bottom: 6px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.gt-button-group--center {
+  text-align: center;
+}
+
+.gt-button {
+  @include transition(all);
+  transition-delay: 0s;
+  position: relative;
+  text-align: center;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  border: 0;
+  text-shadow: 0 1px 1px transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &:before, &:after {
+    @include transition(all);
+    transition-delay: .35s;
+    content: '';
+    display: block;
+    height: 1px;
+    width: 0;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    background-color: $blue;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:after {
+    top: auto;
+    right: auto;
+    bottom: -1px;
+    left: 0;
+  }
+
+  &:hover {
+    color: $white;
+    transition-delay: .35s;
+
+    &:before, &:after {
+      transition-delay: 0s;
+      opacity: 1;
+      width: 100%;
+    }
+  }
+}
+
+.gt-button--primary {
+  color: $blue;
+  background-color: $lightest_gray;
+  border-color: $blue;
+
+  &:hover {
+    background-color: $blue;
+  }
+}
+
+.gt-button--secondary {
+  color: $green;
+
+  &:before, &:after {
+    background-color: $green;
+  }
+
+  &:hover {
+    background-color: $green;
+  }
+}

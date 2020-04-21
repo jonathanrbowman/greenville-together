@@ -51,10 +51,31 @@
     <div class="gt-home__services-blocks">
       <div class="gt-home__services-blocks__block">
         <h1 class="gt-heading">What people are offering</h1>
+        <% 3.times do %>
+        <div class="gt-service-summary">
+          <a class="gt-service-summary__title  gt-link" href="#">E-Commerce / Website Support</a>
+          <h4 class="gt-service-summary__subtitle"><a class="gt-link" href="#">Jonathan Bowman</a> | <b>terms:</b> Free</h4>
+          <p class="gt-service-summary__body">I’m a local software engineer, but I used to make websites, applications, e-commerce sites, for small to medium businesses. If anyone is looking for help getting their business model adjusted to something that can be supported online, I’m happy to help as best I can. Let me know what I can do.</p>
+          <div class="gt-button-group  gt-button-group--center">
+            <button type="button" class="gt-button  gt-button--primary">I could use this!</button>
+            <button type="button" class="gt-button  gt-button--secondary">I can also offer this!</button>
+          </div>
+        </div>
+        <% end %>
       </div>
 
       <div class="gt-home__services-blocks__block  is-outlined">
         <h1 class="gt-heading">What people are looking for</h1>
+        <% 2.times do %>
+        <div class="gt-service-summary">
+          <a class="gt-service-summary__title  gt-link" href="#">E-Commerce / Website Support</a>
+          <h4 class="gt-service-summary__subtitle"><a class="gt-link" href="#">Jonathan Bowman</a></h4>
+          <p class="gt-service-summary__body">I’m a local software engineer, but I used to make websites, applications, e-commerce sites, for small to medium businesses. If anyone is looking for help getting their business model adjusted to something that can be supported online, I’m happy to help as best I can. Let me know what I can do.</p>
+          <div class="gt-button-group  gt-button-group--center">
+            <button type="button" class="gt-button  gt-button--primary">I can help with this!</button>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
 

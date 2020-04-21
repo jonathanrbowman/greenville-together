@@ -142,18 +142,26 @@
 }
 
 .gt-home__services-blocks {
+	display: flex;
+  flex-direction: column;
   font-size: 0;
   width: 100%;
+
+  @media(min-width: $break_medium) {
+    flex-direction: row;
+  }
 }
 
 .gt-home__services-blocks__block {
-  display: inline-block;
-  width: 50%;
+  width: 100%;
   padding: 10px;
   text-align: center;
+  vertical-align: top;
 
   &.is-outlined {
-    border-left: 1px solid $blue;
+    @media(min-width: $break_medium) {
+      border-left: 1px solid $blue;
+    }
   }
 
   .gt-heading {
