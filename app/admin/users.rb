@@ -1,5 +1,31 @@
 ActiveAdmin.register User do
+  menu if: proc { current_user.is_admin }
+
   permit_params :email, :password, :password_confirmation
+
+  controller do
+
+    def create
+      new_user = User.new(
+        email: params[:user][:email],
+        password: params[:user][:password],
+        password_confirmation: params[:user][:password_confirmation]
+      )
+
+      if new_user.save
+        render json: {
+          message: 'User created successfully',
+          user: new_user
+        }, status: :ok
+      else
+        render json: {
+          message: 'Sorry, bad request',
+          errors: new_user.errors.full_messages
+        }, status: :bad_request
+      end
+    end
+
+  end
 
   index do
     selectable_column

@@ -1,0 +1,10 @@
+<div class="gt-service-summary">
+  <a class="gt-service-summary__title  gt-link" href="#"><%= locals[:title] %></a>
+  <h4 class="gt-service-summary__subtitle"><a class="gt-link" href="#"><%= locals[:user] %></a><% if locals[:terms].present? %> | <b>terms:</b> <%= locals[:terms] %><% end %></h4>
+  <p class="gt-service-summary__body"><%= locals[:body] %></p>
+  <div class="gt-button-group  gt-button-group--center">
+    <% locals[:ctas].each do |cta| %>
+      <button type="button" class="gt-button  gt-button--<%= cta[:type] %>"><%= cta[:text] %></button>
+    <% end if locals[:ctas].present? %>
+  </div>
+</div>

@@ -3,6 +3,10 @@
   border-bottom: 2px dashed $lightest_gray;
   padding-top: 16px;
   padding-bottom: 16px;
+
+  &:last-child {
+    border-bottom: 0;
+  }
 }
 
 .gt-service-summary__title {

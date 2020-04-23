@@ -172,3 +172,115 @@
     padding: 20px;
   }
 }
+
+.gt-home__participate {
+  text-align: center;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 30px;
+    background-color: $blue;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+.gt-home__participate__request-offer {
+  font-size: 0;
+  position: relative;
+  display: inline-block;
+
+  h4 {
+    @include transition(all);
+    font-size: 1.25rem;
+    width: 150px;
+    color: $green;
+    padding: 16px 0;
+    display: inline-block;
+    margin: 0;
+    box-shadow: 0 0 26px -28px rgba($green, 0) inset;
+    cursor: pointer;
+
+    &:hover, &.is-active {
+      color: white;
+    }
+
+    &:after, &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 33%;
+      width: 1px;
+      right: 0;
+      left: 0;
+      margin: auto;
+      background-color: $dark_gray;
+    }
+
+    &:before {
+      height: 1px;
+      width: 50%;
+    }
+
+    @media (min-width: $break_medium) {
+      width: 250px;
+    }
+  }
+
+  .gt-home__participate__request-offer__request {
+    &:hover, &.is-active {
+      box-shadow: 0 -24px 26px -28px rgba($green, 1) inset;
+    }
+
+    &:after {
+      bottom: 0;
+    }
+
+    &:before {
+      bottom: 0;
+      left: 0;
+      right: auto;
+    }
+  }
+
+  .gt-home__participate__request-offer__offer {
+    &:hover, &.is-active {
+      box-shadow: 0 24px 26px -28px rgba($green, 1) inset;
+    }
+
+    &:after {
+      top: 0;
+    }
+
+    &:before {
+      top: 0;
+      right: 0;
+      left: auto;
+    }
+  }
+}
+
+.gt-home__participate__form {
+  @include transition(height);
+  height: 0;
+  overflow: hidden;
+  text-align: center;
+
+  &.is-open {
+    height: auto;
+  }
+}
+
+.gt-home__participate__form__sign-in,
+.gt-home__participate__form__sign-up {
+
+  &.is-hidden {
+    display: none;
+  }
+}
