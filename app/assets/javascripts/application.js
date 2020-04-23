@@ -33,8 +33,13 @@ gt.authenticate = function(email, password) {
     dataType: 'json',
     data: JSON.stringify(data)
   })
-  .done(function (data) { console.log(data); })
-  .fail(function (data) { console.log(data); });
+  .done(function (data) {
+    console.log(data);
+    $('.js-user-not-signed-in').html(`<h4 class="gt-heading  gt-heading--light">Thanks, you're signed in now, ${data.user.email}!</h4>`);
+  })
+  .fail(function (data) {
+    console.log(data);
+  });
 };
 
 gt.signUp = function(email, password, passwordConfirmation) {

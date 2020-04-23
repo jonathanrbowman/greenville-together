@@ -291,3 +291,11 @@ ActiveAdmin.setup do |config|
   #
   # config.order_clause = MyOrderClause
 end
+
+# class Admin::SessionsController < ActiveAdmin::Devise::SessionsController
+#
+#   def create
+#     puts 'how bout now'
+#   end
+#
+# end

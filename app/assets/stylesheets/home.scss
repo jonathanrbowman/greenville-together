@@ -195,6 +195,7 @@
   font-size: 0;
   position: relative;
   display: inline-block;
+  margin-bottom: 18px;
 
   h4 {
     @include transition(all);
@@ -271,16 +272,84 @@
   height: 0;
   overflow: hidden;
   text-align: center;
+}
 
-  &.is-open {
-    height: auto;
+.gt-home__participate__form__auth-headers {
+
+  .gt-heading {
+    padding: 22px 0;
+    margin: 0;
   }
+}
+
+.gt-home__participate__form__auth-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  overflow-x: hidden;
+  margin: 0 auto;
+  white-space: nowrap;
 }
 
 .gt-home__participate__form__sign-in,
 .gt-home__participate__form__sign-up {
+  @include transition(all);
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  padding: 22px 0;
 
-  &.is-hidden {
-    display: none;
+  .showing-sign-up & {
+    transform: translateX(-100%);
+  }
+
+  .gt-button {
+    width: 200px;
+    float: right;
+  }
+}
+
+.gt-home__participate__form__sign-in {
+  opacity: 1;
+
+  .showing-sign-up & {
+    opacity: 0;
+  }
+}
+
+.gt-home__participate__form__sign-up {
+  opacity: 0;
+
+  .showing-sign-up & {
+    opacity: 1;
+  }
+}
+
+.gt-home__sign-in-sign-up-tabs {
+  font-size: 0;
+  background-color: $darker_gray;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+
+  div {
+    @include transition(all);
+    display: inline-block;
+    width: 50%;
+    padding: 10px;
+    font-size: 1rem;
+    color: $gray;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($green, .15);
+      color: white;
+    }
+
+    &.is-active {
+      background-color: $green;
+      color: white;
+    }
   }
 }
