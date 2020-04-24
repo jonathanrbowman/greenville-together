@@ -61,6 +61,16 @@
       width: 100%;
     }
   }
+
+  &.is-disabled {
+    opacity: .75;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+.gt-button--full {
+  width: 100%;
 }
 
 .gt-button--primary {

@@ -6,10 +6,6 @@
   <div class="gt-site-wrapper__inner">
 
     <div class="gt-header">
-      <div class="gt-header__logo">
-        <%= image_tag 'greenville_together_logo_light.svg', class: 'gt-logo' %>
-      </div>
-
       <div class="gt-header__intro">
         <h1 class="gt-header__intro__main  gt-heading  gt-heading--light">Let's get down to business.</h1>
         <h4 class="gt-header__intro__sub  gt-heading  gt-heading--light">
@@ -91,20 +87,21 @@
     <h4 class="gt-heading  gt-heading--light">Let's start by letting us know if you're looking to request some help, or offer some help.</h4>
 
     <div class="gt-home__participate__request-offer">
-      <h4 class="gt-home__participate__request-offer__request  no-select  js-open-form" data-service-type="request">Requesting</h4>
-      <h4 class="gt-home__participate__request-offer__offer  no-select  js-open-form" data-service-type="offer">Offering</h4>
+      <h4 class="gt-home__participate__request-offer__request  u-no-select  js-open-form" data-service-type="request">Requesting</h4>
+      <h4 class="gt-home__participate__request-offer__offer  u-no-select  js-open-form" data-service-type="offer">Offering</h4>
     </div>
 
     <div class="gt-home__participate__form">
       <% if user_signed_in? %>
         <h3 class="gt-heading  gt-heading--light">I'm a signed in user! <%= current_user.email %></h3>
+        <a class="gt-link" data-method="get" href="/admin/logout">Logout</a>
       <% else %>
         <div class="js-user-not-signed-in">
           <div class="gt-home__participate__form__auth-headers">
             <h5 class="gt-heading  gt-heading--light">Please sign in or sign up before continuing.</h5>
             <div class="gt-home__sign-in-sign-up-tabs">
-              <div class="js-sign-in-sign-up-tab  no-select  is-active" data-sign-type="in">Sign Me In</div>
-              <div class="js-sign-in-sign-up-tab  no-select" data-sign-type="up">Sign Me Up</div>
+              <div class="js-sign-in-sign-up-tab  u-no-select  is-active" data-sign-type="in">Sign Me In</div>
+              <div class="js-sign-in-sign-up-tab  u-no-select" data-sign-type="up">Sign Me Up</div>
             </div>
           </div>
           <div class="gt-home__participate__form__auth-wrapper">
@@ -120,7 +117,7 @@
                   <input type="password" name="password" class="gt-input__field" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                 </div>
 
-                <button type="button" class="gt-button  gt-button--primary  js-sign-in">Sign In</button>
+                <button type="button" class="gt-button  gt-button--primary  js-sign-in" data-orig-text="Sign In">Sign In</button>
               </form>
             </div>
             <div class="gt-home__participate__form__sign-up">
@@ -141,7 +138,7 @@
                   <input type="password" name="password_confirmation" class="gt-input__field" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                 </div>
 
-                <button type="button" class="gt-button  gt-button--primary  js-sign-up">Create Account</button>
+                <button type="button" class="gt-button  gt-button--primary  js-sign-up" data-orig-text="Create Account">Create Account</button>
               </form>
             </div>
           </div>
@@ -152,41 +149,12 @@
   </div>
 </div>
 
-<div class="gt-site-wrapper">
-  <div class="gt-site-wrapper__inner  gt-home__services-blocks-wrapper">
-
-    <div class="gt-home__services-blocks">
-      <div class="gt-home__services-blocks__block">
-        <h1 class="gt-heading">What people are offering</h1>
-        <% 3.times do %>
-          <%= render 'shared/service_summary', locals: {
-              title: 'E-Commerce / Website Support',
-              user: 'Jonathan Bowman',
-              terms: 'Free',
-              body: 'I’m a local software engineer, but I used to make websites, applications, e-commerce sites, for small to medium businesses. If anyone is looking for help getting their business model adjusted to something that can be supported online, I’m happy to help as best I can. Let me know what I can do.',
-              ctas: [
-                { type: 'primary', text: 'I could use this!' }, { type: 'secondary', text: 'I can also offer this!' }
-              ]
-            }
-          %>
-        <% end %>
-      </div>
-
-      <div class="gt-home__services-blocks__block  is-outlined">
-        <h1 class="gt-heading">What people are looking for</h1>
-        <% 2.times do %>
-          <%= render 'shared/service_summary', locals: {
-              title: 'E-Commerce / Website Support',
-              user: 'Jonathan Bowman',
-              body: 'I’m a local software engineer, but I used to make websites, applications, e-commerce sites, for small to medium businesses. If anyone is looking for help getting their business model adjusted to something that can be supported online, I’m happy to help as best I can. Let me know what I can do.',
-              ctas: [
-                { type: 'primary', text: 'I can help with this!' }
-              ]
-            }
-          %>
-        <% end %>
-      </div>
+<div class="gt-site-wrapper  gt-site-wrapper--gray">
+  <div class="gt-site-wrapper__inner  gt-home__bio">
+    <div class="gt-home__bio__me"></div>
+    <div class="gt-home__bio__copy">
+      <h2 class="gt-heading">So, who made this?</h2>
+      <h4 class="gt-heading">I'm Jonathan Bowman, and at some point I'm going to have to figure out what I should put here!</h4>
     </div>
-
   </div>
 </div>

@@ -51,9 +51,6 @@ gt.adjustFormHeight = function() {
 $(function() {
 
   $('.js-open-form').on('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
     let clickedService = $(this).attr('data-service-type');
     if (gt.home.activeService == clickedService) {
       $('.gt-home__participate__request-offer h4').removeClass('is-active');
@@ -68,9 +65,6 @@ $(function() {
   });
 
   $('.js-sign-in-sign-up-tab').on('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
     let clickedType = $(this).attr('data-sign-type');
 
     if (gt.home.activeSign == clickedType) {

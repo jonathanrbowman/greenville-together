@@ -1,0 +1,26 @@
+<div class="gt-nav  gt-site-wrapper">
+  <div class="gt-site-wrapper__inner">
+      <%= image_tag 'greenville_together_logo_light.svg', class: 'gt-logo' %>
+      <div class="gt-nav__burger  js-open-nav">
+        <div class="gt-nav__burger__top"></div>
+        <div class="gt-nav__burger__middle"></div>
+        <div class="gt-nav__burger__bottom"></div>
+      </div>
+  </div>
+
+
+  <div class="gt-nav__content">
+    <div class="gt-nav__close  js-close-nav"></div>
+    <a class="gt-nav__content__item  gt-link" href="/">Home</a>
+    <a class="gt-nav__content__item  gt-link" href="/">Services Requested</a>
+    <a class="gt-nav__content__item  gt-link" href="/">Services Offered</a>
+    <a class="gt-nav__content__item  gt-link" href="/">About</a>
+    <a class="gt-nav__content__item  gt-link" href="/">Contact</a>
+    <% if user_signed_in? %>
+      <h5>Hi, <%= current_user.first_name %></h5>
+      <a class="gt-nav__content__item  gt-link  js-sign-out" href="#">Logout</a>
+    <% else %>
+      <button type="button" class="gt-button  gt-button--full  gt-button--primary  js-show-auth">Sign In or Sign Up</h4>
+    <% end %>
+  </div>
+</div>

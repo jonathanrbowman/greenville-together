@@ -1,4 +1,7 @@
-.gt-logo {
-  width: 250px;
-  max-width: 100%;
+.gt-header {
+  padding-top: 50px;
+
+  @media(min-width: $break_small) {
+    padding-top: 50px;
+  }
 }

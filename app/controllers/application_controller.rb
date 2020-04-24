@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     if current_user.present?
       redirect_to admin_dashboard_path
     else
-      redirect_to new_user_session_path
+      redirect_to root_path
     end
   end
 

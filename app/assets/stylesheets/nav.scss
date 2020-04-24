@@ -1,0 +1,125 @@
+.gt-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba($darkest_gray, .97);
+  z-index: 10;
+
+  .gt-site-wrapper__inner {
+    padding: 10px;
+  }
+
+  .gt-logo {
+    width: 200px;
+    max-width: 100%;
+  }
+}
+
+.gt-nav__content {
+  @include transition(transform);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 340px;
+  background-color: rgba($white, .97);
+  padding: 12px;
+  padding-top: 44px;
+  transform: translateX(100%);
+
+  &.is-active {
+    transform: translateX(0);
+  }
+}
+
+.gt-nav__content__item {
+  display: block;
+  margin: 12px 0;
+}
+
+.gt-nav__burger {
+  width: 32px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  margin: auto;
+  cursor: pointer;
+
+  &:hover {
+    .gt-nav__burger__top,
+    .gt-nav__burger__middle,
+    .gt-nav__burger__bottom {
+      width: 100%;
+      background-color: $green;
+    }
+  }
+}
+
+.gt-nav__burger__top,
+.gt-nav__burger__middle,
+.gt-nav__burger__bottom {
+  @include transition(all);
+  height: 4px;
+  background-color: $white;
+  position: absolute;
+}
+
+.gt-nav__burger__top {
+  width: 60%;
+  top: 0;
+  right: 0;
+}
+
+.gt-nav__burger__middle {
+  width: 20%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.gt-nav__burger__bottom {
+  width: 60%;
+  bottom: 0;
+  left: 0;
+}
+
+.gt-nav__close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  cursor: pointer;
+
+  &:after, &:before {
+    @include transition(transform);
+    transition-delay: .35s;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    transform: rotate(90deg);
+    background-color: $red;
+  }
+
+  .is-active & {
+    &:after {
+      transform: rotate(45deg);
+    }
+
+    &:before {
+      transform: rotate(-45deg);
+    }
+  }
+}

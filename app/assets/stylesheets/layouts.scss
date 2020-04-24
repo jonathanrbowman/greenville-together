@@ -8,12 +8,17 @@
   &.gt-site-wrapper--blue {
     background-color: $blue;
   }
+
+  &.gt-site-wrapper--gray {
+    background-color: $lightest_gray;
+  }
 }
 
 .gt-site-wrapper__inner {
   margin: 0 auto;
   max-width: $page_width;
   padding: 10px;
+  position: relative;
 
   @media(min-width: $break_small) {
     padding: 20px;

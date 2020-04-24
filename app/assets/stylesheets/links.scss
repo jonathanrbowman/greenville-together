@@ -1,9 +1,9 @@
 .gt-link {
   display: inline-block;
   color: $blue;
-  font-size: 1rem;
   margin: 0;
   position: relative;
+  cursor: pointer;
 
   &:before, &:after {
     @include transition(all);
@@ -33,3 +33,20 @@
     }
   }
 }
+
+.gt-link--green {
+  color: $green;
+
+  &:before, &:after {
+    background-color: $green;
+  }
+}
+
+.gt-link--light {
+  color: $white;
+
+  &:before, &:after {
+    background-color: $white;
+  }
+}
+

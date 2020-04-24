@@ -18,6 +18,7 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry'
+  gem 'rb-readline'
 end
 
 group :development do
