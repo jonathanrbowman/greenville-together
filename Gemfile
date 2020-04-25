@@ -15,6 +15,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'activeadmin'
 gem 'jquery-rails'
+gem 'tzinfo-data'
 
 group :development, :test do
   gem 'pry'
