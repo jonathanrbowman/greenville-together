@@ -6,10 +6,17 @@ module Admin
 
       if resource.valid_password?(params[:user][:password])
         sign_in("user", resource)
-        render json: {
-          message: 'User sign in successfully',
-          user: resource
-        }, status: :ok
+
+        case params[:context]
+        when 'home_page_prompt'
+          render json: {
+            html_block: render_to_string(partial: 'shared/request_or_offer_form')
+          }, status: :ok
+        else
+          render json: {
+            user: resource
+          }, status: :ok
+        end
       else
         render json: {
           message: 'Sorry, bad request',

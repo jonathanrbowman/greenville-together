@@ -1,15 +1,3 @@
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  background-color: transparent;
-}
-
 .gt-input {
   text-align: left;
   width: 100%;
@@ -17,8 +5,11 @@ select:-webkit-autofill:focus {
   margin: 0 auto;
 
   &.gt-input--light {
+    .gt-input__label {
+      color: $gray;
+    }
 
-    .gt-input__label, .gt-input__field {
+    .gt-input__field {
       color: white;
     }
   }
@@ -33,6 +24,7 @@ select:-webkit-autofill:focus {
 }
 
 .gt-input__field {
+  @include transition(border-bottom);
   width: 100%;
   font-size: 1rem;
   -webkit-appearance: none;
@@ -45,7 +37,13 @@ select:-webkit-autofill:focus {
   background-color: transparent;
   border-bottom: 1px solid $dark_gray;
 
-  &:active {
+  &:active, &:focus {
     border-bottom: 1px solid white;
   }
+}
+
+textarea.gt-input__field {
+  background-color: $darker_gray;
+  min-height: 100px;
+  resize: vertical;
 }

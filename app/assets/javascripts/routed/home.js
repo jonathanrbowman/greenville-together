@@ -34,15 +34,9 @@ gt.adjustFormHeight = function() {
   let form = $('.gt-home__participate__form');
 
   if (gt.home.formActive) {
-    let headerPadding = $('.gt-home__participate__form__auth-headers')[0].scrollHeight;
-    let authWrapper = $('.gt-home__participate__form__auth-wrapper');
-    let formHeight = authWrapper.children(':first')[0].scrollHeight;
+    let formHeight = form[0].scrollHeight;
 
-    if (authWrapper.hasClass('showing-sign-up')) {
-      formHeight = authWrapper.children(':last')[0].scrollHeight;
-    }
-
-    form.css('height', formHeight + headerPadding + 'px');
+    form.css('height', formHeight + 'px');
   } else {
     form.css('height', 0)
   }
@@ -61,6 +55,11 @@ $(function() {
       gt.home.openForm();
       gt.home.activeService = clickedService;
       $(this).addClass('is-active');
+      if (gt.home.activeService == 'request') {
+        $('.gt-participate').removeClass('offer-active');
+      } else {
+        $('.gt-participate').addClass('offer-active');
+      }
     }
   });
 

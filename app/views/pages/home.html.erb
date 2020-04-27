@@ -93,56 +93,9 @@
 
     <div class="gt-home__participate__form">
       <% if user_signed_in? %>
-        <h3 class="gt-heading  gt-heading--light">I'm a signed in user! <%= current_user.email %></h3>
-        <a class="gt-link" data-method="get" href="/admin/logout">Logout</a>
+        <%= render 'shared/request_or_offer_form', locals: {user: current_user} %>
       <% else %>
-        <div class="js-user-not-signed-in">
-          <div class="gt-home__participate__form__auth-headers">
-            <h5 class="gt-heading  gt-heading--light">Please sign in or sign up before continuing.</h5>
-            <div class="gt-home__sign-in-sign-up-tabs">
-              <div class="js-sign-in-sign-up-tab  u-no-select  is-active" data-sign-type="in">Sign Me In</div>
-              <div class="js-sign-in-sign-up-tab  u-no-select" data-sign-type="up">Sign Me Up</div>
-            </div>
-          </div>
-          <div class="gt-home__participate__form__auth-wrapper">
-            <div class="gt-home__participate__form__sign-in">
-              <form>
-                <div class="gt-input  gt-input--light">
-                  <label for="email" class="gt-input__label">Email</label>
-                  <input type="email" name="email" class="gt-input__field" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-                </div>
-
-                <div class="gt-input  gt-input--light">
-                  <label for="email" class="gt-input__label">Password</label>
-                  <input type="password" name="password" class="gt-input__field" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-                </div>
-
-                <button type="button" class="gt-button  gt-button--primary  js-sign-in" data-orig-text="Sign In">Sign In</button>
-              </form>
-            </div>
-            <div class="gt-home__participate__form__sign-up">
-              <p class="gt-paragraph  gt-paragraph--light">I don't use your information for anything other than connecting people on this app. Please see my <a href="#" class="gt-link">Privacy Policy</a> for more info.</p>
-              <form>
-                <div class="gt-input  gt-input--light">
-                  <label for="email" class="gt-input__label">Email</label>
-                  <input type="email" name="email" class="gt-input__field" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-                </div>
-
-                <div class="gt-input  gt-input--light">
-                  <label for="email" class="gt-input__label">Password</label>
-                  <input type="password" name="password" class="gt-input__field" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-                </div>
-
-                <div class="gt-input  gt-input--light">
-                  <label for="email" class="gt-input__label">Confirm Password</label>
-                  <input type="password" name="password_confirmation" class="gt-input__field" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-                </div>
-
-                <button type="button" class="gt-button  gt-button--primary  js-sign-up" data-orig-text="Create Account">Create Account</button>
-              </form>
-            </div>
-          </div>
-        </div>
+        <%= render 'shared/sign_in_sign_up_form', locals: {context: 'home_page_prompt'} %>
       <% end %>
     </div>
 

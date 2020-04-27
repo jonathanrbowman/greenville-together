@@ -4,7 +4,7 @@ const gt = {};
 gt.handlingAuthRequest = false;
 gt.navOpen = false;
 
-gt.signIn = function(email, password) {
+gt.signIn = function(email, password, context = false) {
   gt.handlingAuthRequest = true;
   gt.handleAuthState();
   let requestData = {
@@ -12,7 +12,8 @@ gt.signIn = function(email, password) {
       email: email,
       password: password,
       remember_me: true
-    }
+    },
+    context: context
   };
 
   $.ajax({
@@ -23,11 +24,18 @@ gt.signIn = function(email, password) {
     dataType: 'json'
   })
   .done(function (data) {
-    console.log(data);
-    $('.js-user-not-signed-in').html(
-      `<h5 class="gt-link  js-sign-out">Logout</h5>
-       <h4 class="gt-heading  gt-heading--light">Thanks, you're signed in now, ${data.user.email}!</h4>`
-    );
+    if (context == 'home_page_prompt') {
+      $('.gt-home__participate__form').html(data.html_block);
+    } else {
+      console.log("this was an unknown sign in");
+    }
+
+    $('.js-show-auth').each(function() {
+      let classList = $(this).attr('class').split(/\s+/);
+      classList.push('js-sign-out');
+      classList = classList.filter(className => className !== 'js-show-auth');
+      $(this).attr('class', classList.join(' ')).text('Logout');
+    });
   })
   .fail(function (data) {
     console.log(data);
@@ -126,7 +134,8 @@ $(function() {
 
     let email = $(this).closest('form').find('input[name=email]').val();
     let password = $(this).closest('form').find('input[name=password]').val();
-    gt.signIn(email, password);
+    let context = $(this).closest('.js-user-not-signed-in').attr('data-context');
+    gt.signIn(email, password, context);
   });
 
   $(document).on('click.signUp', '.js-sign-up', function(e) {
@@ -141,6 +150,7 @@ $(function() {
   });
 
   $(document).on('click.signOut', '.js-sign-out', function(e) {
+    console.log('signing out?');
     if (gt.handlingAuthRequest) {
       return false;
     }

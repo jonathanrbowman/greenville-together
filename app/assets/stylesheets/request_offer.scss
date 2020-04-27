@@ -1,0 +1,38 @@
+.gt-participate {
+  white-space: nowrap;
+  font-size: 0;
+  overflow-x: hidden;
+  max-width: 500px;
+  position: relative;
+  margin: 0 auto;
+
+  &.offer-active {
+    & > div {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.gt-participate__request, .gt-participate__offer {
+  @include transition(all);
+  width: 100%;
+  display: inline-block;
+  font-size: 1rem;
+  vertical-align: top;
+}
+
+.gt-participate__request {
+  opacity: 1;
+
+  .offer-active & {
+    opacity: 0;
+  }
+}
+
+.gt-participate__offer {
+  opacity: 0;
+
+  .offer-active & {
+    opacity: 1;
+  }
+}
